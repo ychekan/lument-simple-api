@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: images/php/Dockerfile
+    volumes:
+      - ./images/apache/apache.conf:/etc/apache2/sites-available/000-default.conf
+      - ./src:/var/www/html
+    links:
+      - db
+    ports:
+      - 8082:80
+    environment:
+      APP_ENV: local
+      APP_DEBUG: 'true'
+      APP_KEY: lumen
+      APP_LOCALE: en
+      APP_FALLBACK_LOCALE: en
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - app-network
+
+  db:
+    image: postgres:12
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=secret
+    networks:
+      - app-network
+
+  mailhog:
+    image: 'mailhog/mailhog:latest'
+    ports:
+      - '${FORWARD_MAILHOG_PORT:-1025}:1025'
+      - '${FORWARD_MAILHOG_DASHBOARD_PORT:-8026}:8025'
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
