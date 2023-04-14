@@ -5,23 +5,11 @@ namespace App\Http\Resources\User;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
-use OpenApi\Attributes as OA;
 
 /**
  * Class UserWithTokenResource
  * @package App\Http\Responses\User
  */
-#[OA\Schema(
-    properties: [
-        new OA\Property(
-            'user',
-            ref: '#/components/schemas/UserResource'
-        ),
-        new OA\Property('access_token', type: 'string'),
-        new OA\Property('token_type', type: 'string'),
-        new OA\Property('expires_in', type: 'integer'),
-    ]
-)]
 class UserWithTokenResource extends JsonResource
 {
     /**

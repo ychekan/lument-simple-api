@@ -6,8 +6,6 @@ namespace App\Repositories\Company;
 use App\Models\Company;
 use App\Models\User;
 use App\Repositories\AppRepository;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\Auth;
 
 /**
  * Class CompanyRepository

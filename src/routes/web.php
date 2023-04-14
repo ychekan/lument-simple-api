@@ -20,7 +20,7 @@ $router->get('/', function () use ($router) {
 
 Route::group([
     'prefix' => 'api'
-], function ($router) {
+], function () {
     Route::post('sign-in', 'AuthController@signIn');
     Route::post('register', 'AuthController@register');
     Route::post('recover-password', 'AuthController@forgotPassword');

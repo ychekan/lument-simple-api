@@ -4,20 +4,12 @@ declare(strict_types=1);
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 /**
  * Class SuccessResource
  * @package App\Http\Resources
  */
-#[OA\Schema(
-    properties: [
-        new OA\Property('success', type: 'boolean'),
-        new OA\Property('message', type: 'string'),
-        new OA\Property('code', type: 'integer'),
-    ]
-)]
 class SuccessResource extends JsonResource
 {
     /**

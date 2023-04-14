@@ -10,10 +10,7 @@ use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use App\Repositories\User\UserRepository;
 use App\Services\AppService;
-use Illuminate\Auth\Passwords\PasswordBrokerManager;
-use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Password;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
@@ -99,17 +96,5 @@ class UserService extends AppService
         );
 
         return $status === Password::PASSWORD_RESET;
-    }
-
-
-    /**
-     * Get the broker to be used during password reset.
-     *
-     * @return \Illuminate\Contracts\Auth\PasswordBroker
-     */
-    public function broker(): \Illuminate\Contracts\Auth\PasswordBroker
-    {
-        $passwordBrokerManager = new PasswordBrokerManager(app());
-        return $passwordBrokerManager->broker();
     }
 }

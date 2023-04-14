@@ -4,19 +4,11 @@ declare(strict_types=1);
 namespace App\Http\Resources\Company;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use OpenApi\Attributes as OA;
 
 /**
  * Class CompanyResource
  * @package App\Http\Resources\Company
  */
-#[OA\Schema(
-    properties: [
-        new OA\Property('first_name', type: 'string'),
-        new OA\Property('last_name', type: 'string'),
-        new OA\Property('email', type: 'string'),
-    ]
-)]
 class CompanyResource extends JsonResource
 {
     /**

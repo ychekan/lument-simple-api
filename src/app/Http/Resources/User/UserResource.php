@@ -4,19 +4,11 @@ declare(strict_types=1);
 namespace App\Http\Resources\User;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use OpenApi\Attributes as OA;
 
 /**
  * Class UserResource
  * @package App\Http\Resources\User
  */
-#[OA\Schema(
-    properties: [
-        new OA\Property('first_name', type: 'string'),
-        new OA\Property('last_name', type: 'string'),
-        new OA\Property('email', type: 'string'),
-    ]
-)]
 class UserResource extends JsonResource
 {
     /**

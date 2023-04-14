@@ -56,23 +56,4 @@ class CompanyService extends AppService
 
         return $this->companyRepository->save($user, $data);
     }
-
-    /**
-     * @param int $id
-     * @param array $data
-     * @return Company
-     */
-    public function update(int $id, array $data): Company
-    {
-        return $this->companyRepository->update($id, $data);
-    }
-
-    /**
-     * @param int $id
-     * @return bool
-     */
-    public function delete(int $id): bool
-    {
-        return $this->companyRepository->delete($id);
-    }
 }

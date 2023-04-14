@@ -25,13 +25,12 @@ $app = new Laravel\Lumen\Application(
 
 $app->configure('mail');
 $app->configure('services');
+$app->configure('swagger-lume');
 
 $app->register(Illuminate\Notifications\NotificationServiceProvider::class);
 $app->register(Illuminate\Mail\MailServiceProvider::class);
 $app->register(Illuminate\Auth\Passwords\PasswordResetServiceProvider::class);
-//
-//$app->alias('mail.manager', Illuminate\Mail\MailManager::class);
-//$app->alias('mail.manager', Illuminate\Contracts\Mail\Factory::class);
+//$app->register(\SwaggerLume\ServiceProvider::class);
 
 //$app->withFacades();
 $app->withFacades(true, [
@@ -84,10 +83,6 @@ $app->configure('app');
 | route or middleware that'll be assigned to some specific routes.
 |
 */
-
-// $app->middleware([
-//     App\Http\Middleware\ExampleMiddleware::class
-// ]);
 
 $app->routeMiddleware([
      'auth' => App\Http\Middleware\Authenticate::class,

@@ -5,7 +5,6 @@ namespace App\Repositories\Company;
 
 use App\Models\Company;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Interface CompanyRepository
